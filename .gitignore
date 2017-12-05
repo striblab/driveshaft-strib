@@ -1,3 +1,4 @@
+.env
 *~
 *.swp
 /lib/driveshaft/public/assets
