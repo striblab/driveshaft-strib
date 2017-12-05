@@ -225,7 +225,7 @@ module Driveshaft
         if @file["error"]
           flash[:error] = @file['error']['message']
         elsif !file_config.empty? && (file_config['destinations'] != @destinations || default_export_format != @export_format)
-          flash[:info] = "You are using settings configured in the URL. Automated publishing may use a different format or destination. <a href='https://docs.google.com/a/nytimes.com/spreadsheets/d/#{$settings[:index][:key]}/edit#gid=0'>Update or add</a> this file's configuration to make these settings persist."
+          flash[:info] = "You are using settings configured in the URL. Automated publishing may use a different format or destination. <a href='https://docs.google.com/spreadsheets/d/#{$settings[:index][:key]}/edit#gid=0'>Update or add</a> this file's configuration to make these settings persist."
         end
 
       rescue Exception => e
