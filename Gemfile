@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 
 gem 'thin', '~> 1.6.2'
-gem 'rack', '~> 1.6.1'
+gem 'rack', '~> 1.6.2'
 gem 'rack-flash3', '~> 1.0.4'
 gem 'rake', '~> 10.3.2'
 gem 'puma'
