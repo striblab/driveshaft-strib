@@ -22,6 +22,10 @@ The `DRIVESHAFT_SETTINGS_INDEX_KEY` setting tells Driveshaft where the list of d
 
 Note that you can use the interface to publish any file the API account has access to, but the index list of files helps manage things.
 
+### AWS
+
+The region setting cannot be changed per deployment or URL?  This is unfortunate because our buckets are on different regions.
+
 ## Deploy
 
 The application is currently deployed on Heroku.
