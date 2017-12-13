@@ -16,7 +16,8 @@ $settings = {
   },
   auth: {
     required: ENV['DRIVESHAFT_SETTINGS_AUTH_REQUIRED'].to_s == 'true',
-    domain: ENV['DRIVESHAFT_SETTINGS_AUTH_DOMAIN']
+    domain: ENV['DRIVESHAFT_SETTINGS_AUTH_DOMAIN'],
+    emails: (ENV['DRIVESHAFT_SETTINGS_AUTH_EMAILS'] || '').split(",")
   },
   asset_host: (ENV['DRIVESHAFT_SETTINGS_ASSET_HOST'] || '/assets').sub(/\/$/, ''),
   max_versions: ENV['DRIVESHAFT_SETTINGS_MAX_VERSIONS'].to_i,

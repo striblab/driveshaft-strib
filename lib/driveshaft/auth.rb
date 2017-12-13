@@ -136,6 +136,9 @@ module Driveshaft
           end
         )
 
+        # Check if email is in list, if list
+        halt 403 if $settings[:auth][:emails] && ($settings[:auth][:emails].include? session[:email]) == false
+
         session[:access_token] = application_client.authorization.access_token
         session[:refresh_token] = application_client.authorization.refresh_token
         session[:expires_in] = application_client.authorization.expires_in
