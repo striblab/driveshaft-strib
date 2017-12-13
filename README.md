@@ -1,3 +1,5 @@
+Star Tribune instance of Draveshaft.  See `README-strib.md`
+
 # Driveshaft
 
 > Driveshaft is a [Sinatra](http://www.sinatrarb.com/) application built to turn Google Spreadsheets and Google Documents into JSON with the click of a button.
