@@ -32,7 +32,7 @@ module Driveshaft
         client.authorization = Signet::OAuth2::Client.new(
           token_credential_uri: 'https://accounts.google.com/o/oauth2/token',
           audience: 'https://accounts.google.com/o/oauth2/token',
-          scope: 'https://www.googleapis.com/auth/drive',
+          scope: 'https://www.googleapis.com/auth/drive https://www.googleapis.com/auth/spreadsheets',
           issuer: $google_service_account['client_email'],
           signing_key: key
         )
@@ -53,7 +53,7 @@ module Driveshaft
           flow = Google::APIClient::InstalledAppFlow.new(
             :client_id => $google_client_secrets_installed.client_id,
             :client_secret => $google_client_secrets_installed.client_secret,
-            :scope => ['https://www.googleapis.com/auth/drive', 'email']
+            :scope => ['https://www.googleapis.com/auth/drive', 'email', 'https://www.googleapis.com/auth/spreadsheets']
           )
           client.authorization = flow.authorize(file_storage)
         end
@@ -67,7 +67,7 @@ module Driveshaft
       @web_client ||= (
         client = CLIENT.dup
         client.authorization = $google_client_secrets_web.to_authorization.dup
-        client.authorization.scope = 'https://www.googleapis.com/auth/drive email'
+        client.authorization.scope = 'https://www.googleapis.com/auth/drive email https://www.googleapis.com/auth/spreadsheets'
 
         # Find the correct URI to redirect to (OAuth settings can contain multiple)
         redirect_pattern = "^#{request.scheme}:\/\/#{request.host}"
