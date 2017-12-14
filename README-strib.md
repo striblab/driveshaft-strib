@@ -12,7 +12,19 @@ We use the `GOOGLE_APICLIENT_SERVICEACCOUNT` authentication method.
 
 ### Authentication for the application
 
-To limit who can view the application interface, we use Google as well.  We were unable to get the web OAuth to work, so we are using the `GOOGLE_APICLIENT_CLIENTSECRETS_INSTALLED` OAuth autehntication.  The main difference is that after authenticating, you will not be redirected to the application.
+Unfortunately, what works locally and what works on Heroku are different.
+
+#### Locally
+
+Given that the `GOOGLE_APICLIENT_CLIENTSECRETS_WEB` authentication method did not work locally, use the `GOOGLE_APICLIENT_CLIENTSECRETS_INSTALLED` method instead.
+
+#### Production
+
+Given that the `GOOGLE_APICLIENT_CLIENTSECRETS_INSTALLED` authentication method did not work locally, use the `GOOGLE_APICLIENT_CLIENTSECRETS_WEB` method instead.
+
+**NOTE**: Given new Google policies, a user logging in will be presented with a *"This app isn't verified"*, which is not cool, but not a trivial work around.
+
+#### Limited to email
 
 We have also added a feature to limit users by email address.  This list is managed in the `DRIVESHAFT_SETTINGS_AUTH_EMAILS` variable and should contain a comma separated list of emails of who can access the application.
 
